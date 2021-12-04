@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { Sidebar } from '@/components/index';
+import { Center, Sidebar } from '@/components/index';
 
 export default function Home() {
   return (
@@ -8,8 +8,9 @@ export default function Home() {
       <Head>
         <title>Next Spotify</title>
       </Head>
-      <main>
+      <main className="flex">
         <Sidebar />
+        <Center />
         {/* Center */}
       </main>
       <div>{/* Player */}</div>
