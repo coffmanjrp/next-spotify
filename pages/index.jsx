@@ -12,7 +12,6 @@ export default function Home() {
       <main className="flex">
         <Sidebar />
         <Center />
-        {/* Center */}
       </main>
       <div>{/* Player */}</div>
     </div>
