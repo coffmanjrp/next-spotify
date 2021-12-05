@@ -6,6 +6,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
+import { memoize } from 'lodash';
 import 'tailwindcss/tailwind.css';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
@@ -17,5 +18,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     </SessionProvider>
   );
 }
+
+// https://github.com/facebookexperimental/Recoil/issues/733
+// ignore in-browser next/js recoil warnings until its fixed.
+const mutedConsole = memoize((console) => ({
+  ...console,
+  warn: (...args) =>
+    args[0].includes('Duplicate atom key') ? null : console.warn(...args),
+}));
+
+global.console = mutedConsole(global.console);
 
 export default MyApp;
