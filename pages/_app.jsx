@@ -8,6 +8,7 @@ import {
 } from 'recoil';
 import { memoize } from 'lodash';
 import 'tailwindcss/tailwind.css';
+import '@/styles/globals.css';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
